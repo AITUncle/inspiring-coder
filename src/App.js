@@ -1,17 +1,34 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import 'typeface-roboto'
 import './App.css';
 import Button from 'material-ui/Button';
+import CoderCard from "./component/CoderCard";
+import {CoderBean} from "./bean/CoderBean";
+import TopBar from "./component/TopBar";
 
 
 class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Button >Button</Button>
-      </div>
-    );
-  }
+    constructor(props){
+        super(props);
+        this.bean = new CoderBean({});
+    }
+    render() {
+        return (
+            <div className="App">
+                <TopBar />
+                <div className="App-content">
+                    <CoderCard bean={this.bean}/><br/>
+                    <CoderCard bean={this.bean}/><br/>
+                    <CoderCard bean={this.bean}/><br/>
+                    <CoderCard bean={this.bean}/><br/>
+                    <CoderCard bean={this.bean}/><br/>
+                    <CoderCard bean={this.bean}/><br/>
+                    <CoderCard bean={this.bean}/><br/>
+                    <CoderCard bean={this.bean}/><br/>
+                </div>
+            </div>
+        );
+    }
 }
 
 export default App;
