@@ -61,7 +61,7 @@ class CoderCard extends Component {
     }
 
     render() {
-        const {classes,bean} = this.props;
+        const {classes,bean, other} = this.props;
 
         let headClasses = {
             title: classes.title,
@@ -73,7 +73,7 @@ class CoderCard extends Component {
 
         let title = <div>{bean.name}<span className={classes.birthday}>{bean.birthday}</span></div>;
         return (
-            <Card raised={true}>
+            <Card raised={true} {...other}>
                 <CardHeader
                     avatar={avatar}
                     title={title}

@@ -47,6 +47,7 @@ let styles = theme => {
             margin: 0, // Reset for Safari
             color: 'inherit',
             width: '100%',
+            height: '100%',
             '&:focus': {
                 outline: 100,
             },
