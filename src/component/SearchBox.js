@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import {withStyles} from 'material-ui/styles';
 import Search from "material-ui-icons/Search";
 import {fade} from 'material-ui/styles/colorManipulator';
+import DebounceInput from 'react-debounce-input';
 
 let styles = theme => {
     return {
@@ -13,16 +14,15 @@ let styles = theme => {
             fontFamily: theme.typography.fontFamily,
             position: 'relative',
             borderRadius: 2,
-            marginLeft: theme.spacing.unit,
             background: fade(theme.palette.common.white, 0.15),
             '&:hover': {
                 background: fade(theme.palette.common.white, 0.30),
             },
             '& $input': {
                 transition: theme.transitions.create('width'),
-                width: "200px",
+                width: 100,
                 '&:focus': {
-                    width: "450px",
+                    width: 450,
                 },
             },
         },
@@ -56,16 +56,27 @@ let styles = theme => {
 };
 
 class SearchBox extends Component {
+    static propTypes = {
+        classes: PropTypes.object.isRequired,
+        /**
+         * onchange for input
+         */
+        onChange:PropTypes.func,
+    };
 
     render() {
-        const {classes} = this.props;
+        const {classes, onChange} = this.props;
         return (
             <div className={classes.wrapper}>
                 <div className={classes.search}>
                     <Search />
                 </div>
-                <input id="docsearch-input" className={classes.input}/>
-            </div>);
+                <DebounceInput
+                    className={classes.input}
+                    debounceTimeout={1000}
+                    onChange={onChange}/>
+            </div>
+        );
     }
 }
 

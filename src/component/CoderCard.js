@@ -9,7 +9,6 @@ import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
 import Avatar from "material-ui/Avatar";
 import Typography from "material-ui/Typography";
 import Divider from "material-ui/Divider";
-import Button from 'material-ui/Button';
 import ThumbUpSwitch from "./ThumbUpSwitch";
 import {CoderInfoItem} from "../bean/CoderBean";
 import Link from "./Link";
@@ -50,18 +49,15 @@ class CoderCard extends Component {
         bean:PropTypes.object.isRequired,
     };
 
-    constructor(props) {
-        super(props);
-    }
-
     createKeyValueLine(key, value){
         if(!key || !value){
             return;
         }
-        return(<li style={{display:"table-row", paddingBottom:"0"}}>
-            <Typography type="caption" noWrap align="right" style={{display:"table-cell"}}>{key}</Typography>
-            <Typography type="subheading" style={{display:"table-cell"}}>{value}</Typography>
-        </li>)
+        return(
+            <li key={key} style={{display:"table-row", paddingBottom:"0"}}>
+                <Typography type="caption" noWrap align="right" style={{display:"table-cell"}}>{key}</Typography>
+                <Typography type="subheading" style={{display:"table-cell"}}>{value}</Typography>
+            </li>)
     }
 
     render() {

@@ -30,10 +30,14 @@ class TopBar extends Component{
 
     static propTypes = {
         classes: PropTypes.object.isRequired,
+        /**
+         * onchange for input of search box
+         */
+        onInputChange:PropTypes.func,
     };
 
     render(){
-        const {classes} = this.props;
+        const {classes, onInputChange} = this.props;
         return(<div className={classes.root}>
             <AppBar position="static">
                 <Toolbar>
@@ -43,8 +47,8 @@ class TopBar extends Component{
                     <Typography noWrap type="title" color="inherit" className={classes.flex}>
                         励志的程序员
                     </Typography>
-                    <SearchBox />
                     <div className={classes.grow} />
+                    <SearchBox onChange={onInputChange}/>
                     <IconButton
                         component="a"
                         title="GitHub"
