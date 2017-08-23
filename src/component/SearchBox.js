@@ -58,7 +58,7 @@ let styles = theme => {
 
 class SearchBox extends Component {
     static propTypes = {
-        classes: PropTypes.object.isRequired,
+        classes: PropTypes.object,
         /**
          * onchange for input
          */

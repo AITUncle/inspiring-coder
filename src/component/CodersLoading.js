@@ -11,7 +11,7 @@ let style = {
     root: {
         position: "absolute",
         left: "50%",
-        top: "50%",
+        top: "36%",
         width:"100%",
         transform: "translate(-50%,-50%)",
     },loading:{
@@ -28,14 +28,16 @@ function CodersLoading(props) {
     const {classes} = props;
     return (
         <div className={classes.root}>
-            <ReactLoading className={classes.loading} type="spin" color="#400"/>
+            <ReactLoading
+                className={classes.loading}
+                type="spin"
+                color="#400"/>
             <CoderTips />
         </div>);
 }
 
 CodersLoading.propTypes = {
-    classes: PropTypes.object.required,
-
+    classes: PropTypes.object,
 };
 
 export default withStyles(style)(CodersLoading);

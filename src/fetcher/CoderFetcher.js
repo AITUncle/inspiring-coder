@@ -8,7 +8,7 @@ export default class CoderFetcher {
     constructor() {
         // lean cloud dada class
         this.clsName = "inspiring_coder";
-        this.list = [];
+        this.list = [];          //CoderBean
         this.searchList = [];   //for search result
         this.allCount = -1;
     }
@@ -47,7 +47,7 @@ export default class CoderFetcher {
      *
      * @param callback:function     callback(successed, list, allCount)
      */
-    loadMoreCoders = (callback) => {
+    loadCoders = (callback, loadMore) => {
         //must get count at first
         if (this.allCount < 0) {
             this.updateAllCount((successed) => {
@@ -58,7 +58,7 @@ export default class CoderFetcher {
                 }
             })
         } else {
-            this.loadMore(callback);
+            loadMore? this.loadMore(callback):callback(true, this.list, this.allCount);
         }
     };
 

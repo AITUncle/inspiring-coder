@@ -1,46 +1,34 @@
 import React, {Component} from 'react';
 import 'typeface-roboto'
 import './App.css';
-import {CoderBean} from "./bean/CoderBean";
-import TopBar from "./component/TopBar";
-import CoderList from "./component/CoderList";
-import CoderFetcher from "./fetcher/CoderFetcher";
-import CodersLoading from "./component/CodersLoading";
+import createStoreAndState from "./createStoreAndState";
+import {Provider} from "react-redux";
+import LoadingFirstContainer from "./contianer/LoadingFirstContainer";
+import TopBarContainer from "./contianer/TopBarContainer";
+import CodersContainer from "./contianer/CodersContainer";
 
+
+let MyAwesomeReactComponent = () => (
+    <div>
+        <TopBarContainer />
+        <div className="App-content">
+            <CodersContainer />
+            <LoadingFirstContainer />
+        </div>
+    </div>
+);
 
 class App extends Component {
-    constructor(props){
+    constructor(props) {
         super(props);
-        this.state = {
-            allCount:-1,
-            isLoading:true,
-            list:[],
-        };
-        this.list = [new CoderBean({}),new CoderBean({})];
-        this.coderFetcher = new CoderFetcher();
-        this.coderFetcher.loadMoreCoders((successed, list, count)=>{
-            console.log("------------", successed, list, count);
-            this.setState({
-                isLoading:false,
-                list:list,
-                allCount:count,
-            });
-        })
+        this.store = createStoreAndState();
     }
+
     render() {
-        const {isLoading, list, allCount} = this.state;
         return (
-            <div>
-                <TopBar />
-                <div className="App-content">
-                    <CoderList
-                        list={list}
-                        allCount={allCount}
-                    />
-                    {isLoading &&<CodersLoading />
-                    }
-                </div>
-            </div>
+            <Provider store={this.store}>
+                <MyAwesomeReactComponent />
+            </Provider>
         );
     }
 }

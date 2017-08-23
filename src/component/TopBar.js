@@ -29,7 +29,7 @@ let styles = theme =>{
 class TopBar extends Component{
 
     static propTypes = {
-        classes: PropTypes.object.isRequired,
+        classes: PropTypes.object,
         /**
          * onchange for input of search box
          */
