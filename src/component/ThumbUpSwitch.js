@@ -2,7 +2,7 @@
  * Created by vectorzeng on 17/8/21.
  */
 
-import React,{Component} from 'react'
+import React from 'react'
 import {withStyles} from 'material-ui/styles'
 import Switch from 'material-ui/Switch'
 import ThumbUpIcon from 'material-ui-icons/ThumbUp';

@@ -18,9 +18,12 @@ export class CoderInfoItem{
 
 export class CoderBean{
     constructor({
-                    name,avatar,birthday,motto, infoArray,end,
-                    numOfLike,
-                    writer,infoUrl,writerUrl,}){
+                    objectId,id,//
+                    name,avatar,birthday,motto, infoArray,end, numOfLike,
+                    writer,url,writerUrl,}){
+        this.objectId = objectId;
+        this.id = id;
+
         let defaultArray = [
             new CoderInfoItem("码过代表作:",["百度搜索、Infoseek"]),
             new CoderInfoItem("毕业院校:",["北京大学","布法罗纽约州立大学"],"、"),
@@ -36,10 +39,23 @@ export class CoderBean{
 
         this.end = end?end:"这是一段结尾";
 
-        this.numOfLike=numOfLike?numOfLike:"10086";
+        this.numOfLike=numOfLike?numOfLike:0;
         this.writer=writer?writer:"vectorzeng";
-        this.infoUrl=infoUrl?infoUrl:"https://baike.baidu.com/item/%E6%9D%8E%E5%BD%A6%E5%AE%8F/125160";
+        this.url=url?url:"https://baike.baidu.com/item/%E6%9D%8E%E5%BD%A6%E5%AE%8F/125160";
         this.writerUrl=writerUrl?writerUrl:"https://www.zhihu.com/people/lost-zeng/posts";
     }
 
+    setObjectId(oId){
+        this.objectId = oId;
+    }
+
+    static parseToArray(results, array){
+        let items = results.map((e)=>{
+            console.error("parseToArray", e);
+            const bean = new CoderBean(e.attributes);
+            bean.setObjectId(e.id);
+            return bean;
+        });
+        return array.concat(items);
+    }
 }
