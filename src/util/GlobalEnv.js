@@ -8,11 +8,11 @@ export const URL_GIT_HUB = "#";
  * first load must wait for 3s at last
  * @type {number}
  */
-export const MIN_DELAY_FIRST_LOAD = 3000;
+const MIN_TIME_LOAD = 2500;
 
 export const delayForFirstLoad = (beginTime) => {
     if(beginTime > 0){
-        let delay = MIN_DELAY_FIRST_LOAD - (currentTimestamp()-beginTime);
+        let delay = MIN_TIME_LOAD - (currentTimestamp()-beginTime);
         return delay>=0 ? delay: 0;
     }
 }

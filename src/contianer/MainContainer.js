@@ -7,26 +7,47 @@ import CoderList from "../component/CoderList";
 import {LOADING_SATE} from "../reducers/codersReducer";
 import {beginLoad, mainLoaded} from "../action/CodersAction";
 import CoderFetcher from "../fetcher/CoderFetcher";
+import {currentTimestamp} from "../util/Util";
+import {delayForFirstLoad} from "../util/GlobalEnv";
 
 class MainContainer extends Component {
 
     constructor(props) {
         super(props);
+        this.timeoutRet = -1;
+        const beginTime = currentTimestamp();
         this.query = CoderFetcher.createNormalQuery();
-        this.query.setLoadListener((successed,list,count)=>{
-            this.props.loaded(successed,list,count);
-        });
-        this.query.setLoadMoreListener((successed,list,count)=>{
-            this.props.loadedMore(successed,list,count);
-        });
+        this.query.setLoadListener(
+            this.createDelayListener(beginTime, props.loaded)
+        );
+        this.query.setLoadMoreListener(props.loadedMore);
         this.props.beginLoad();
         this.query.loadCoders();
     }
+
+    setTimeoutRet = (ret) => {
+        this.timeoutRet = ret;
+    };
+
+    createDelayListener = (beginTime, l) => {
+        return (successed,list,count)  => {
+            let delay = delayForFirstLoad(beginTime);
+            const ret = setTimeout(()=>{
+                this.setTimeoutRet(-1);
+                l(successed,list,count);
+            },delay);
+            this.setTimeoutRet(ret);
+        }
+    };
 
     clearQueryListener = () => {
         if(this.query){
             this.query.clearListener();
         }
+        if(this.timeoutRet >= 0){
+            clearTimeout(this.timeoutRet);
+        }
+        console.error("clearTimeout, " ,this.timeoutRet);
     };
 
     componentWillUnmount(){

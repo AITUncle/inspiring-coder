@@ -30,6 +30,7 @@ export default function codersReducer(state = initState, action) {
                 ...state,
                 loadingState:action.loadingState,
                 searchValue:action.searchValue,
+                listOfCoderBean:[],
             };
         case SEARCH_LOADED:
         case MAIN_LOADED:

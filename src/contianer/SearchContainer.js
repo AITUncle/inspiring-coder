@@ -27,12 +27,8 @@ class SearchContainer extends Component {
         if(currentValue !== nextValue){
             this.clearQueryListener();
             this.query = CoderFetcher.createSearchQuery(nextValue);
-            this.query.setLoadListener((successed,list,count)=>{
-                this.props.loaded(successed,list,count);
-            });
-            this.query.setLoadMoreListener((successed,list,count)=>{
-                this.props.loadedMore(successed,list,count);
-            });
+            this.query.setLoadListener(this.props.loaded);
+            this.query.setLoadMoreListener(this.props.loadedMore);
             this.query.loadCoders();
         }
     };
