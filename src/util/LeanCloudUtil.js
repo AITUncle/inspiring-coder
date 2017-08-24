@@ -21,14 +21,25 @@ class LeanCloudUtil {
         AV.init({appId: APP_ID, appKey: APP_KEY});
     }
 
-    count(cls, callback) {
+    /**
+     *
+     * @param cls:string
+     * @param callback:function callback(successed, count)
+     * @param containsKey:string
+     * @param containsValue:string
+     */
+    count(cls, callback, containsKey, containsValue) {
+        if (this.debug) {
+            return;
+        }
         let query = new AV.Query(cls);
+        if(containsKey && containsValue){
+            query.contains(containsKey, containsValue);
+        }
         query.count().then(
             count => {
                 callback(true, count);
-                console.log(count);
             }, error => {
-                console.error("------------count3---------",error);
                 callback(false, error);
             });
     }
@@ -36,12 +47,14 @@ class LeanCloudUtil {
     /**
      *
      * @param cls               class name
+     * @param callback:function callback(successed, result);
      * @param ascending:string
      * @param limit:number      max count of result
      * @param skip:number       count of top item will been skip
-     * @param callback:function callback(successed, result);
+     * @param containsKey
+     * @param containsValue
      */
-    query(cls, callback, ascending, limit, skip) {
+    query(cls, callback, ascending, limit, skip, containsKey, containsValue) {
         if (this.debug) {
             return;
         }
@@ -54,6 +67,9 @@ class LeanCloudUtil {
         }
         if (skip) {
             query.skip(skip);
+        }
+        if(containsKey && containsValue){
+            query.contains(containsKey, containsValue);
         }
         query.find().then(function (results) {
             callback(true, results);

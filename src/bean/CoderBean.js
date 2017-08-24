@@ -56,6 +56,6 @@ export class CoderBean{
             bean.setObjectId(e.id);
             return bean;
         });
-        return array.concat(items);
+        return array?array.concat(items):items;
     }
 }

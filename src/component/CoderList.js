@@ -8,9 +8,12 @@ import PropTypes from 'prop-types';
 
 function CoderList(props) {
     const {list} = props;
-    const items = list.map((b)=>{
-        return(<li key={b.objectId} style={{marginBottom:"2ex"}}> <CoderCard bean={b}/></li>);
-    });
+    let items = null;
+    if(list) {
+        items = list.map((b) => {
+            return (<li key={b.objectId} style={{marginBottom: "2ex"}}><CoderCard bean={b}/></li>);
+        });
+    }
     return(<ul>{items}</ul>);
 }
 

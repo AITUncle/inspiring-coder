@@ -2,21 +2,31 @@ import React, {Component} from 'react';
 import 'typeface-roboto'
 import './App.css';
 import createStoreAndState from "./createStoreAndState";
-import {Provider} from "react-redux";
+import {connect, Provider} from "react-redux";
 import LoadingFirstContainer from "./contianer/LoadingFirstContainer";
 import TopBarContainer from "./contianer/TopBarContainer";
-import CodersContainer from "./contianer/CodersContainer";
+import MainContainer from "./contianer/MainContainer";
+import SearchContainer from "./contianer/SearchContainer";
 
 
-let MyAwesomeReactComponent = () => (
-    <div>
+let MyAwesomeReactComponent = (props) => {
+    const {searchValue} = props;
+    return (<div>
         <TopBarContainer />
         <div className="App-content">
-            <CodersContainer />
+            {Boolean(searchValue)?
+                <SearchContainer searchValue={searchValue}/> :<MainContainer />}
             <LoadingFirstContainer />
         </div>
-    </div>
-);
+    </div>)
+};
+const mapStateToProps = (state) => ({
+    searchValue:state.searchValue
+});
+MyAwesomeReactComponent = connect(mapStateToProps,null)(MyAwesomeReactComponent);
+
+
+
 
 class App extends Component {
     constructor(props) {

@@ -9,11 +9,11 @@ import CodersLoading from "../component/CodersLoading";
 
 function LoadingFirst(props) {
     const {show} = props;
-    return show?<CodersLoading /> : null;
+    return show?<CodersLoading />: null;
 }
 
 const mapStateToProps = (state) =>({
-    show:(state.loadingState === LOADING_SATE.LOADING_FIRST),
+    show:(state.loadingState === LOADING_SATE.LOADING),
 });
 
 export default connect(mapStateToProps,null)(LoadingFirst);

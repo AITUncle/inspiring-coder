@@ -4,71 +4,117 @@
 import {sLeanCloudUtil} from "../util/LeanCloudUtil"
 import {CoderBean} from "../bean/CoderBean";
 
-export default class CoderFetcher {
-    constructor() {
-        // lean cloud dada class
-        this.clsName = "inspiring_coder";
-        this.list = [];          //CoderBean
-        this.searchList = [];   //for search result
+
+class CoderQuery {
+    constructor(asc, containsKey, containsValue) {
+        this.clsName = "inspiring_coder";// lean cloud dada class
+        this.asc = asc;
+        this.list = [];//CoderBean
         this.allCount = -1;
+        this.containsKey = containsKey;
+        this.containsValue = containsValue;
+        
+        this.loadListener = null;   //function(successed, list, allCount)
+        this.loadMoreListener = null;//function(successed, list, allCount)
     }
 
-    updateAllCount = (callback) => {
-        console.log("updateAllCount");
-        sLeanCloudUtil.count(this.clsName, (successed, count) => {
-            if (successed) {
-                this.allCount = count;
-            }
-            callback(successed, this.allCount);
-        });
+    getContainsValue = () =>{
+        return this.containsValue;
     };
 
-    /**
-     *
-     * @param callback:function     callback(successed, list, allCount)
-     */
-    loadMore = (callback) => {
-        if (this.hasMoreCoders()) {
-            sLeanCloudUtil.query(this.clsName, (successed, r) => {
-                if (successed) {
-                    this.list = CoderBean.parseToArray(r, this.list);
-                }
-                callback(successed, this.list, this.allCount);
-            }, "createdAt", 100, this.list.length);
-        } else {
-            console.error("CoderFetcher can not loadMore : allCount,this.list.length:",
-                this.allCount, this.list.length);
-        }
-    };
-
-    ////↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓/////
-
-    /**
-     *
-     * @param callback:function     callback(successed, list, allCount)
-     */
-    loadCoders = (callback, loadMore) => {
-        //must get count at first
-        if (this.allCount < 0) {
-            this.updateAllCount((successed) => {
-                if (successed) {
-                    this.loadMore(callback);
-                } else {
-                    callback(false, this.list, this.allCount);
-                }
-            })
-        } else {
-            loadMore? this.loadMore(callback):callback(true, this.list, this.allCount);
-        }
-    };
-
-    hasMoreCoders() {
+    hasMoreCoders = () => {
         if (this.allCount >= 0) {
             return this.allCount > this.list.length;
         }
+    };
+
+    /**
+     * @param callback function(successed, count)
+     */
+    getCount = (callback) => {
+        sLeanCloudUtil.count(this.clsName, callback, this.containsKey, this.containsValue);
+    };
+
+    /**
+     * @param l function(successed, list, allCount)
+     */
+    setLoadListener = (l) => {
+        this.loadListener = l;
+    };
+
+    /**
+     * @param l function(successed, list, allCount)
+     */
+    setLoadMoreListener = (l) => {
+        this.loadMoreListener = l;
+    };
+
+    ////↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓/////
+    /**
+     *
+     * @param firstLoad boolean
+     */
+    loadMore = ( firstLoad ) => {
+        let listener = firstLoad ?this.loadListener:this.loadMoreListener;
+        if (this.hasMoreCoders()) {
+            sLeanCloudUtil.query(this.clsName, (successed, r) => {
+                    if (successed) {
+                        this.list = CoderBean.parseToArray(r, this.list);
+                    }
+                    if(listener){
+                        listener(successed, this.list, this.allCount);
+                    }
+                }, this.asc, 100, this.list.length,
+                this.containsKey, this.containsValue);
+        } else {
+            console.error("CoderFetcher can not loadMore : allCount,this.list.length:",
+                this.allCount, this.list.length);
+            if(listener){
+                const successed = this.allCount >= 0;
+                listener(successed, this.list, this.allCount);
+            }
+        }
+    };
+
+    /**
+     * loadCoders 和 loadMore 不可能同时进行
+     */
+    loadCoders = () => {
+        let listener = this.loadListener;
+        //must get count at first
+        if (this.allCount < 0) {
+            this.getCount((successed, count) => {
+                if (successed) {
+                    this.allCount = count;
+                    this.loadMore(true);
+                } else {
+                    listener(false, this.list, this.allCount);
+                }
+            });
+        } else {
+            listener(true, this.list, this.allCount);
+        }
+    };
+
+    clearListener(){
+        this.loadListener = null;
+        this.loadMoreListener = null;
+    }
+}
+
+
+export default class CoderFetcher {
+    static ascByName = "numOfLike";
+    static ascByCreateAt = "createdAt";
+    static searchKey = "name";
+
+    static createSearchQuery = (value) => {
+        return new CoderQuery(CoderFetcher.ascByCreateAt,
+            CoderFetcher.searchKey, value);
+    };
+
+    static createNormalQuery = () => {
+        return new CoderQuery(this.ascByCreateAt, null, null);
     }
 
-    queryByName(callback) {
-
-    }
 }

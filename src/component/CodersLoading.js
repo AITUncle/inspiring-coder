@@ -10,11 +10,17 @@ import CoderTips from "./CoderTips";
 let style = {
     root: {
         position: "absolute",
+        left: 0,
+        right: 0,
+        top: 0,
+        bottom:0,
+    },centerContain:{
+        position: "absolute",
         left: "50%",
         top: "36%",
         width:"100%",
         transform: "translate(-50%,-50%)",
-    },loading:{
+    }, loading:{
         margin:"auto",
     }
 };
@@ -28,11 +34,13 @@ function CodersLoading(props) {
     const {classes} = props;
     return (
         <div className={classes.root}>
-            <ReactLoading
-                className={classes.loading}
-                type="spin"
-                color="#400"/>
-            <CoderTips />
+            <div className={classes.centerContain}>
+                <ReactLoading
+                    className={classes.loading}
+                    type="spin"
+                    color="#400"/>
+                <CoderTips />
+            </div>
         </div>);
 }
 

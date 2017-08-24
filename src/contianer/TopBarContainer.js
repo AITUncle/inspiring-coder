@@ -4,6 +4,7 @@
 import React from "react";
 import {connect} from "react-redux";
 import TopBar from "../component/TopBar";
+import {searchByName} from "../action/CodersAction";
 
 
 function Bar(props) {
@@ -11,10 +12,17 @@ function Bar(props) {
     return <TopBar onInputChange={onInputChange}/>;
 }
 
+const mapStateToPorps = (state) => ({
+    searchValue:state.searchValue
+});
+
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onInputChange(e){
-        console.log("TopBar-----onInputChange", e.target.value);
+        const nextValue = e.target.value;
+        if(nextValue !== ownProps.searchValue){
+            dispatch(searchByName(nextValue));
+        }
     }
 });
 
-export default connect(null,mapDispatchToProps)(Bar);
+export default connect(mapStateToPorps,mapDispatchToProps)(Bar);
