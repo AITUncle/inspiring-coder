@@ -26,11 +26,12 @@ export const searchByName = (name) =>({
     loadingState:LOADING_SATE.LOADING,
 });
 
-export const searchLoaded = (list, allCount, loadingState) => ({
+export const searchLoaded = (list, allCount, loadingState, showTipsNon) => ({
     type:SEARCH_LOADED,
     listOfCoderBean: list,
     allCount: allCount,
     loadingState:loadingState,
+    showTipsNon:showTipsNon,
 });
 
 export const beginLoad = () => ({

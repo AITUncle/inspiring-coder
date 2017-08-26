@@ -21,6 +21,7 @@ const initState = {
     searchValue:"",
     openSnack:false,
     snackMsg:"",
+    showTipsNon:false,//当搜索结果为空时，提示用户到github项目上去添加
 };
 
 export default function codersReducer(state = initState, action) {
@@ -34,7 +35,16 @@ export default function codersReducer(state = initState, action) {
                 searchValue:action.searchValue,
                 listOfCoderBean:[],
             };
-        case SEARCH_LOADED:
+        case SEARCH_LOADED:{
+            const {listOfCoderBean,allCount,loadingState,showTipsNon} = action;
+            return{
+                ...state,
+                listOfCoderBean,
+                allCount,
+                loadingState,
+                showTipsNon,
+            };
+        }
         case MAIN_LOADED:{
             const {listOfCoderBean,allCount,loadingState} = action;
             return{

@@ -8,6 +8,8 @@ import {searchLoaded} from "../action/CodersAction";
 import PropTypes from "prop-types";
 import {LOADING_SATE} from "../reducers/codersReducer";
 import CoderFetcher from "../fetcher/CoderFetcher";
+import Typography from "material-ui/Typography";
+import {URL_GIT_HUB} from "../util/GlobalEnv";
 
 class SearchContainer extends Component {
 
@@ -48,12 +50,16 @@ class SearchContainer extends Component {
     };
 
     render() {
-        const {list, allCount} = this.props;
+        const {list, allCount,searchValue,showTipsNon} = this.props;
         return (
             <div>
                 <CoderList
                     list={list}
                     allCount={allCount}/>
+                <Typography style={{marginTop:"24%"}} type="headline" gutterBottom align="center">
+                    没有找到：<span style={{color:"#B71C1C"}}>{searchValue}</span>。
+                    <a href={URL_GIT_HUB}>添加{searchValue}到系统，成为作者</a>
+                </Typography>
             </div>
         );
     }
@@ -63,6 +69,7 @@ const mapStateToProps = (state) =>({
     list:state.listOfCoderBean,
     allCount:state.allCount,
     searchValue:state.searchValue,
+    showTipsNon:state.showTipsNon,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
