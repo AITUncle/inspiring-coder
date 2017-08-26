@@ -3,7 +3,7 @@ import 'typeface-roboto'
 import './App.css';
 import createStoreAndState from "./createStoreAndState";
 import {connect, Provider} from "react-redux";
-import LoadingFirstContainer from "./contianer/LoadingFirstContainer";
+import LoadingComponent from "./contianer/LoadingComponent";
 import TopBarContainer from "./contianer/TopBarContainer";
 import MainContainer from "./contianer/MainContainer";
 import SearchContainer from "./contianer/SearchContainer";
@@ -16,7 +16,7 @@ let MyAwesomeReactComponent = (props) => {
         <div className="App-content">
             {Boolean(searchValue)?
                 <SearchContainer searchValue={searchValue}/> :<MainContainer />}
-            <LoadingFirstContainer />
+            <LoadingComponent />
         </div>
         <SnackContainer />
     </div>)

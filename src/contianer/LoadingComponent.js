@@ -7,7 +7,7 @@ import {LOADING_SATE} from "../reducers/codersReducer"
 import CodersLoading from "../component/CodersLoading";
 
 
-function LoadingFirst(props) {
+function LoadingComponent(props) {
     const {show} = props;
     return show?<CodersLoading />: null;
 }
@@ -16,4 +16,4 @@ const mapStateToProps = (state) =>({
     show:(state.loadingState === LOADING_SATE.LOADING),
 });
 
-export default connect(mapStateToProps,null)(LoadingFirst);
+export default connect(mapStateToProps,null)(LoadingComponent);
