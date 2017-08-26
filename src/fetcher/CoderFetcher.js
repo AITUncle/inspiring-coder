@@ -7,7 +7,7 @@ import {CoderBean} from "../bean/CoderBean";
 
 class CoderQuery {
     constructor(asc, containsKey, containsValue) {
-        this.clsName = "inspiring_coder";// lean cloud dada class
+        this.clsName = CoderFetcher.clsName;
         this.asc = asc;
         this.list = [];//CoderBean
         this.allCount = -1;
@@ -104,9 +104,10 @@ class CoderQuery {
 
 
 export default class CoderFetcher {
-    static ascByName = "numOfLike";
+    static keyLike = "numOfLike";
     static ascByCreateAt = "createdAt";
     static searchKey = "name";
+    static clsName = "inspiring_coder";// lean cloud dada class
 
     static createSearchQuery = (value) => {
         return new CoderQuery(CoderFetcher.ascByCreateAt,
@@ -114,7 +115,21 @@ export default class CoderFetcher {
     };
 
     static createNormalQuery = () => {
-        return new CoderQuery(this.ascByCreateAt, null, null);
+        return new CoderQuery(CoderFetcher.ascByCreateAt, null, null);
+    };
+
+    /**
+     *
+     * @param objectId
+     * @param liked
+     * @param callback:function callback(successed, result);
+     */
+    static liked = (objectId, liked, callback) => {
+        if(!objectId){//
+            return ;
+        }
+        const amount = liked? 1:-1;
+        sLeanCloudUtil.increment(CoderFetcher.clsName, objectId, CoderFetcher.keyLike, amount, callback);
     }
 
 }

@@ -3,7 +3,8 @@
  */
 
 import {LOADING_SATE} from "../reducers/codersReducer"
-// import CoderFetcher from "../fetcher/CoderFetcher";
+import {CoderBean} from "../bean/CoderBean";
+import likedArrayMgr from "../util/LikedArrayMgr";
 
 export const SEARCH = "search";
 export const SEARCH_LOADED = "search_loaded";
@@ -11,6 +12,9 @@ export const SEARCH_LOADED = "search_loaded";
 export const MAIN_LOAD = "main_load";
 export const MAIN_LOADED = "main_loaded";
 
+export const UPDATE_LIKE_CODER = "update_like_coder";
+
+export const OPEN_SNACK = "open_snack";
 
 
 // const coderFetcher = new CoderFetcher();
@@ -41,3 +45,23 @@ export const mainLoaded = (list, allCount, loadingState) => ({
     loadingState:loadingState,
 });
 
+const updateLikeCoder = (listOfCoderBean, bean, liked) => {
+    return {
+        type:UPDATE_LIKE_CODER,
+        listOfCoderBean:CoderBean.updateCodeBeanLiked(listOfCoderBean, bean, liked),
+    }
+};
+
+export const likeCoder = (liked, bean)  => (dispatch, getState) =>{
+    //first change local storage then server
+    dispatch(updateLikeCoder(getState().listOfCoderBean, bean, liked));
+} ;
+
+
+export const openSnack = (open, msg) => {
+    return {
+        type:OPEN_SNACK,
+        openSnack:open,
+        snackMsg:msg
+    }
+};

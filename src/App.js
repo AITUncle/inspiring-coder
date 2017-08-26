@@ -7,7 +7,7 @@ import LoadingFirstContainer from "./contianer/LoadingFirstContainer";
 import TopBarContainer from "./contianer/TopBarContainer";
 import MainContainer from "./contianer/MainContainer";
 import SearchContainer from "./contianer/SearchContainer";
-
+import SnackContainer from "./contianer/SnackContainer"
 
 let MyAwesomeReactComponent = (props) => {
     const {searchValue} = props;
@@ -18,6 +18,7 @@ let MyAwesomeReactComponent = (props) => {
                 <SearchContainer searchValue={searchValue}/> :<MainContainer />}
             <LoadingFirstContainer />
         </div>
+        <SnackContainer />
     </div>)
 };
 const mapStateToProps = (state) => ({

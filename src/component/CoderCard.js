@@ -9,9 +9,9 @@ import Card, {CardHeader, CardContent, CardActions} from 'material-ui/Card';
 import Avatar from "material-ui/Avatar";
 import Typography from "material-ui/Typography";
 import Divider from "material-ui/Divider";
-import ThumbUpSwitch from "./ThumbUpSwitch";
 import {CoderInfoItem} from "../bean/CoderBean";
 import Link from "./Link";
+import ThumbUpContainer from "../contianer/ThumbUpContainer";
 
 const styles = theme => {
     console.log("----------codercard----", theme);
@@ -92,7 +92,11 @@ class CoderCard extends Component {
                     {bean.end?<Typography type="body1">{bean.end}</Typography>:null}
                 </CardContent>
                 <CardActions disableActionSpacing>
-                    <ThumbUpSwitch />
+                    <ThumbUpContainer
+                        bean={bean}
+                        num={bean.numOfLike}
+                        />
+
                     <div className={classes.flexGrow} />
                     <Link href="#" className={classes.writer}>作者：vectorzeng</Link>
                 </CardActions>

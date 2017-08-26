@@ -84,9 +84,10 @@ class LeanCloudUtil {
      * @param cls               class name
      * @param objectId
      * @param key
+     * @param amount
      * @param callback:function callback(successed, result);
      */
-    increment(cls, objectId, key, callback) {
+    increment(cls, objectId, key, amount, callback) {
         if (this.debug) {
             return;
         }
@@ -94,7 +95,7 @@ class LeanCloudUtil {
             return;
         }
         let item = AV.Object.createWithoutData(cls, objectId);
-        item.increment(key);
+        item.increment(key, amount);
         item.fetchWhenSave(true);
         item.save().then((r) => {
             if (callback) {
@@ -104,7 +105,7 @@ class LeanCloudUtil {
             if (callback) {
                 callback(false, error);
             }
-            console.error("AV.increment failed ", cls, key, "objectId ", objectId);
+            console.error("AV.increment failed ", cls, key, "objectId ", objectId, callback);
         });
     }
 }

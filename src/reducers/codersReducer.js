@@ -2,7 +2,7 @@
  * Created by vectorzeng on 17/8/23.
  */
 
-import {MAIN_LOADED, MAIN_LOAD, SEARCH, SEARCH_LOADED} from "../action/CodersAction";
+import {MAIN_LOADED, MAIN_LOAD, SEARCH, SEARCH_LOADED, OPEN_SNACK, UPDATE_LIKE_CODER} from "../action/CodersAction";
 export class LOADING_SATE {
     static NONE = -1;
     static LOADING = 1;
@@ -19,6 +19,8 @@ const initState = {
     allCount:-1,
     loadingState: LOADING_SATE.NONE,
     searchValue:"",
+    openSnack:false,
+    snackMsg:"",
 };
 
 export default function codersReducer(state = initState, action) {
@@ -33,7 +35,7 @@ export default function codersReducer(state = initState, action) {
                 listOfCoderBean:[],
             };
         case SEARCH_LOADED:
-        case MAIN_LOADED:
+        case MAIN_LOADED:{
             const {listOfCoderBean,allCount,loadingState} = action;
             return{
                 ...state,
@@ -41,6 +43,22 @@ export default function codersReducer(state = initState, action) {
                 allCount,
                 loadingState,
             };
+        }
+        case OPEN_SNACK:{
+            const {openSnack,snackMsg} = action;
+            return{
+                ...state,
+                openSnack,
+                snackMsg,
+            };
+        }
+        case UPDATE_LIKE_CODER:{
+            const {listOfCoderBean} = action;
+            return{
+                ...state,
+                listOfCoderBean
+            };
+        }
         default:
             return state;
     }

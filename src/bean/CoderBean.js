@@ -2,6 +2,8 @@
  * Created by vectorzeng on 17/8/21.
  */
 
+import likedArrayMgr from "../util/LikedArrayMgr"
+
 export class CoderInfoItem{
     constructor(key,values,separator){
         this.key = key;
@@ -43,11 +45,17 @@ export class CoderBean{
         this.writer=writer?writer:"vectorzeng";
         this.url=url?url:"https://baike.baidu.com/item/%E6%9D%8E%E5%BD%A6%E5%AE%8F/125160";
         this.writerUrl=writerUrl?writerUrl:"https://www.zhihu.com/people/lost-zeng/posts";
+        this.liked = false;
     }
 
-    setObjectId(oId){
+    setObjectId = (oId) => {
         this.objectId = oId;
-    }
+        this.updateLiked();
+    };
+
+    updateLiked = () => {
+        this.liked = likedArrayMgr.isLiked(this.objectId);
+    };
 
     static parseToArray(results, array){
         let items = results.map((e)=>{
@@ -57,5 +65,24 @@ export class CoderBean{
             return bean;
         });
         return array?array.concat(items):items;
+    }
+
+    /**
+     * update data:
+     * 1)更新 bean.numOfLike
+     * 2)返回一个最新状态的 likedArray 并保存到 localStorage.
+     * @param array
+     * @param bean
+     * @param liked
+     */
+    static updateCodeBeanLiked(array, bean, liked){
+        likedArrayMgr.liked(bean, liked);
+        return array.map((b) => {
+            if(bean.objectId === b.objectId){
+                bean.numOfLike += (liked ? 1:-1);
+            }
+            b.updateLiked();
+            return b;
+        });
     }
 }
