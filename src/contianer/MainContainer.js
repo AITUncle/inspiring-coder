@@ -31,12 +31,18 @@ class MainContainer extends Component {
 
     createDelayListener = (beginTime, l) => {
         return (successed,list,count)  => {
-            let delay = delayForFirstLoad(beginTime);
-            const ret = setTimeout(()=>{
-                this.setTimeoutRet(-1);
+            //第一次显示，延时显示列表,让用户有足够的时间看到tips
+            if(!delayForFirstLoad.isNotFirst){
+                let delay = delayForFirstLoad(beginTime);
+                delayForFirstLoad.isNotFirst = true;
+                const ret = setTimeout(()=>{
+                    this.setTimeoutRet(-1);
+                    l(successed,list,count);
+                },delay);
+                this.setTimeoutRet(ret);
+            }else{
                 l(successed,list,count);
-            },delay);
-            this.setTimeoutRet(ret);
+            }
         }
     };
 
