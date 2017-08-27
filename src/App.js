@@ -15,6 +15,7 @@ let MyAwesomeReactComponent = (props) => {
     return (<div>
         <TopBarContainer />
         <div className="App-content container">
+
             {Boolean(searchValue)?
                 <SearchContainer searchValue={searchValue}/> :<MainContainer />}
             <LoadingComponent />

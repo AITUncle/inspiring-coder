@@ -1,6 +1,3 @@
-body {
-  background-color: #E0E0E0;
-}
 
 .App-content{
   margin: 40px auto;
@@ -30,7 +27,7 @@ body {
   to { transform: rotate(360deg); }
 }
 
-ol, ul { list-style: none; }
+
 
 
 .container {

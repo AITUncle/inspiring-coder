@@ -1,0 +1,76 @@
+[
+    {
+        "id":0,
+        "name": "李彦宏",
+        "avatar": "img/0_liyanhong.jpg",
+        "birthday": "1968年11月17日",
+        "motto": "做自己喜欢并且擅长的事情，不跟风，不动摇。",
+        "infoArray": [
+            {
+                "key": "码过代表作:",
+                "values": [
+                    "百度搜索","Infoseek"
+                ],
+                "separator": "、"
+            },
+            {
+                "key": "毕业院校:",
+                "values": [
+                    "北京大学",
+                    "布法罗纽约州立大学"
+                ],
+                "separator": "、"
+            },
+            {
+                "key": "职业生涯:",
+                "values": [
+                    "1991年，日本松下实习",
+                    "1994，道·琼斯子公司",
+                    "1997年,Infoseek(搜信)公司",
+                    "1999年创立百度公司"
+                ],
+                "separator": "->"
+            }
+        ],
+        "end": "这是一段结尾",
+        "numOfLike": 0,
+        "writer": "vectorzeng",
+        "url": "https://baike.baidu.com/item/%E6%9D%8E%E5%BD%A6%E5%AE%8F/125160",
+        "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts"
+    },
+    {
+        "id":1,
+        "name": "马化腾",
+        "avatar": "img/1_mahuateng.jpg",
+        "birthday": "1971年10月29日",
+        "motto": "复制+创新=成功",
+        "infoArray": [
+            {
+                "key": "码过代表作:",
+                "values": [
+                    "股霸卡","OICQ"
+                ],
+                "separator": "、"
+            },
+            {
+                "key": "毕业院校:",
+                "values": [
+                    "深圳大学计算机与软件学院"
+                ]
+            },
+            {
+                "key": "职业生涯:",
+                "values": [
+                    "1993年，深圳润迅通讯发展有限公司",
+                    "1998年，深圳腾讯计算机系统有限公司"
+                ],
+                "separator": "->"
+            }
+        ],
+        "end": "这是一段结尾",
+        "numOfLike": 0,
+        "writer": "vectorzeng",
+        "url": "https://baike.baidu.com/item/%E9%A9%AC%E5%8C%96%E8%85%BE/124988",
+        "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts"
+    }
+]
