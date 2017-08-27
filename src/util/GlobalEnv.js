@@ -3,7 +3,7 @@
  */
 
 import {currentTimestamp} from "./Util";
-export const URL_GIT_HUB = "#";
+export const URL_GIT_HUB = "https://github.com/vectorzeng/inspiring-coder";
 /**
  * first load must wait for 3s at last
  * @type {number}

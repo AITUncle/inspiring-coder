@@ -42,7 +42,7 @@ const styles = theme => {
 class CoderCard extends Component {
 
     static propTypes = {
-        classes: PropTypes.object.isRequired,
+        classes: PropTypes.object,
         /**
          * @see CoderBean
          */

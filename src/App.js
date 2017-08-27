@@ -8,6 +8,7 @@ import TopBarContainer from "./contianer/TopBarContainer";
 import MainContainer from "./contianer/MainContainer";
 import SearchContainer from "./contianer/SearchContainer";
 import SnackContainer from "./contianer/SnackContainer"
+import FloatMenu from "./component/FloatMenu";
 
 let MyAwesomeReactComponent = (props) => {
     const {searchValue} = props;
@@ -18,6 +19,7 @@ let MyAwesomeReactComponent = (props) => {
                 <SearchContainer searchValue={searchValue}/> :<MainContainer />}
             <LoadingComponent />
         </div>
+        <FloatMenu />
         <SnackContainer />
     </div>)
 };
