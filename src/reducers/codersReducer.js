@@ -2,15 +2,21 @@
  * Created by vectorzeng on 17/8/23.
  */
 
-import {MAIN_LOADED, MAIN_LOAD, SEARCH, SEARCH_LOADED, OPEN_SNACK, UPDATE_LIKE_CODER} from "../action/CodersAction";
+import {
+    MAIN_LOADED, MAIN_LOAD, SEARCH, SEARCH_LOADED, OPEN_SNACK, UPDATE_LIKE_CODER,
+    RELOAD
+} from "../action/CodersAction";
 export class LOADING_SATE {
     static NONE = -1;
+
     static LOADING = 1;
     static LOADING_FAILED = 2;
     static LOADING_SUCCESSED = 3;
-    static LOADING_MORE = 4;
-    static LOADING_MORE_FAILED = 5;
-    static LOADING_MORE_SUCCESSED = 5;
+    static LOADING_RELOAD = 4;
+
+    static LOADING_MORE = 5;
+    static LOADING_MORE_FAILED = 6;
+    static LOADING_MORE_SUCCESSED = 7;
 }
 
 
@@ -67,6 +73,13 @@ export default function codersReducer(state = initState, action) {
             return{
                 ...state,
                 listOfCoderBean
+            };
+        }
+        case RELOAD:{
+            const {loadingState} = action;
+            return{
+                ...state,
+                loadingState
             };
         }
         default:

@@ -21,9 +21,20 @@ class MainContainer extends Component {
             this.createDelayListener(beginTime, props.loaded)
         );
         this.query.setLoadMoreListener(props.loadedMore);
+        this.beginLoad();
+    }
+
+    componentWillReceiveProps(nextProps){
+        if(this.props.loadingState !== nextProps.loadingState
+            && nextProps.loadingState === LOADING_SATE.LOADING_RELOAD){
+            this.beginLoad();
+        }
+    }
+
+    beginLoad = () => {
         this.props.beginLoad();
         this.query.loadCoders();
-    }
+    };
 
     setTimeoutRet = (ret) => {
         this.timeoutRet = ret;
@@ -75,6 +86,7 @@ class MainContainer extends Component {
 const mapStateToProps = (state) =>({
     list:state.listOfCoderBean,
     allCount:state.allCount,
+    loadingState:state.loadingState,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({

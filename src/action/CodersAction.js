@@ -16,6 +16,8 @@ export const UPDATE_LIKE_CODER = "update_like_coder";
 
 export const OPEN_SNACK = "open_snack";
 
+export const RELOAD = "reload";
+
 
 // const coderFetcher = new CoderFetcher();
 
@@ -66,3 +68,9 @@ export const openSnack = (open, msg) => {
         snackMsg:msg
     }
 };
+
+
+export const reload = () => ({
+    type:RELOAD,
+    loadingState:LOADING_SATE.LOADING_RELOAD,
+});
