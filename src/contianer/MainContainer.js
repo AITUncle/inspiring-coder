@@ -25,8 +25,9 @@ class MainContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps){
-        if(this.props.loadingState !== nextProps.loadingState
-            && nextProps.loadingState === LOADING_SATE.LOADING_RELOAD){
+        let isReload = this.props.loadingState !== nextProps.loadingState
+        && nextProps.loadingState === LOADING_SATE.LOADING_RELOAD;
+        if(isReload){
             this.beginLoad();
         }
     }

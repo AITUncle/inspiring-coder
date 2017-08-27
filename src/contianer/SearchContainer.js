@@ -25,8 +25,8 @@ class SearchContainer extends Component {
         this.search(null, props.searchValue);
     }
 
-    search = (currentValue, nextValue) => {
-        if(currentValue !== nextValue){
+    search = (currentValue, nextValue, isReload) => {
+        if(currentValue !== nextValue || isReload){
             this.clearQueryListener();
             this.query = CoderFetcher.createSearchQuery(nextValue);
             this.query.setLoadListener(this.props.loaded);
@@ -42,7 +42,9 @@ class SearchContainer extends Component {
     };
 
     componentWillReceiveProps(nextProps){
-        this.search(this.props.searchValue, nextProps.searchValue)
+        let isReload = this.props.loadingState !== nextProps.loadingState
+            && nextProps.loadingState === LOADING_SATE.LOADING_RELOAD;
+        this.search(this.props.searchValue, nextProps.searchValue, isReload)
     }
 
     componentWillUnmount(){
@@ -56,10 +58,11 @@ class SearchContainer extends Component {
                 <CoderList
                     list={list}
                     allCount={allCount}/>
+                {showTipsNon &&
                 <Typography style={{marginTop:"24%"}} type="headline" gutterBottom align="center">
                     没有找到：<span style={{color:"#B71C1C"}}>{searchValue}</span>。
                     <a href={URL_GIT_HUB}>添加{searchValue}到系统，成为作者</a>
-                </Typography>
+                </Typography>}
             </div>
         );
     }
@@ -70,6 +73,7 @@ const mapStateToProps = (state) =>({
     allCount:state.allCount,
     searchValue:state.searchValue,
     showTipsNon:state.showTipsNon,
+    loadingState:state.loadingState,
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
@@ -77,7 +81,8 @@ const mapDispatchToProps = (dispatch, ownProps) => ({
         const loadingState = successed?
             LOADING_SATE.LOADING_SUCCESSED:
             LOADING_SATE.LOADING_FAILED;
-        dispatch(searchLoaded(list, count, loadingState));
+        const showTipsNon = (successed&&count===0);//服务器上没有找到，提醒用户添加数据，成为作者
+        dispatch(searchLoaded(list, count, loadingState, showTipsNon));
     },
     loadedMore(successed,list,count){
 
