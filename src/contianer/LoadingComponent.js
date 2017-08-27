@@ -29,7 +29,6 @@ const mapStateToProps = (state) =>({
 const mapDispatchToProps = (dispatch, ownProps) => ({
     onReload(e){
         e.preventDefault();
-        console.log("重新加载。。。");
         dispatch(reload());
     },
 });
