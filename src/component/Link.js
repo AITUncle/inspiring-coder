@@ -56,7 +56,7 @@ function Link(props) {
 }
 
 Link.propTypes = {
-    classes: PropTypes.object.isRequired,
+    classes: PropTypes.object,
     className: PropTypes.string,
     component: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     to: PropTypes.string,

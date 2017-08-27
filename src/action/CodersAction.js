@@ -4,7 +4,6 @@
 
 import {LOADING_SATE} from "../reducers/codersReducer"
 import {CoderBean} from "../bean/CoderBean";
-import likedArrayMgr from "../util/LikedArrayMgr";
 
 export const SEARCH = "search";
 export const SEARCH_LOADED = "search_loaded";

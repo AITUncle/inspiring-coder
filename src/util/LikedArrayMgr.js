@@ -10,7 +10,6 @@ export class LikedArrayMgr{
      * @see CoderBean
      */
     constructor(){
-        console.error("LikedArrayMgr");
         this.keyLocal = "liked_array";
         this.array = getLocalJObject(this.keyLocal);
         //is not undefine and is not array

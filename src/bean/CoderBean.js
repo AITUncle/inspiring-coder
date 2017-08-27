@@ -59,7 +59,6 @@ export class CoderBean{
 
     static parseToArray(results, array){
         let items = results.map((e)=>{
-            console.error("parseToArray", e);
             const bean = new CoderBean(e.attributes);
             bean.setObjectId(e.id);
             return bean;

@@ -15,7 +15,6 @@ import ThumbUpContainer from "../contianer/ThumbUpContainer";
 import Button from "material-ui/Button";
 
 const styles = theme => {
-    console.log("----------codercard----", theme);
     return {
         root: {
         },
@@ -99,7 +98,7 @@ class CoderCard extends Component {
                         />
 
                     <div className={classes.flexGrow} />
-                    <Link href="#" className={classes.writer}>作者：vectorzeng</Link>
+                    <Link href={bean.writerUrl} className={classes.writer}>作者：vectorzeng</Link>
                     <Button href={bean.url} dense color="primary">
                         更多
                     </Button>

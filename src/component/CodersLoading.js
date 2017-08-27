@@ -40,7 +40,7 @@ class CodersLoading extends Component {
         if (showReloaded) {
             items.push(
                 <Typography key="coder_loading" type={type} gutterBottom align="center">
-                    <a href="#" onClick={onClickReload}>
+                    <a href="#reload" onClick={onClickReload}>
                         数据加载失败，点我重新加载...
                     </a>
                 </Typography>

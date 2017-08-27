@@ -13,7 +13,7 @@ let MyAwesomeReactComponent = (props) => {
     const {searchValue} = props;
     return (<div>
         <TopBarContainer />
-        <div className="App-content">
+        <div className="App-content container">
             {Boolean(searchValue)?
                 <SearchContainer searchValue={searchValue}/> :<MainContainer />}
             <LoadingComponent />
