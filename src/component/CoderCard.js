@@ -55,8 +55,8 @@ class CoderCard extends Component {
         }
         return(
             <li key={key} style={{display:"table-row", paddingBottom:"0"}}>
-                <Typography type="caption" noWrap align="right" style={{display:"table-cell"}}>{key}</Typography>
-                <Typography type="subheading" style={{display:"table-cell"}}>{value}</Typography>
+                <Typography type="subheading" noWrap align="right" style={{display:"table-cell",fontWeight:"bold"}}>{key}</Typography>
+                <Typography type="subheading" color="secondary" style={{display:"table-cell",paddingLeft:"1em"}}>{value}</Typography>
             </li>)
     }
 
