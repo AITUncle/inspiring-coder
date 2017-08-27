@@ -12,6 +12,7 @@ import Divider from "material-ui/Divider";
 import {CoderInfoItem} from "../bean/CoderBean";
 import Link from "./Link";
 import ThumbUpContainer from "../contianer/ThumbUpContainer";
+import Button from "material-ui/Button";
 
 const styles = theme => {
     console.log("----------codercard----", theme);
@@ -99,6 +100,9 @@ class CoderCard extends Component {
 
                     <div className={classes.flexGrow} />
                     <Link href="#" className={classes.writer}>作者：vectorzeng</Link>
+                    <Button href={bean.url} dense color="primary">
+                        更多
+                    </Button>
                 </CardActions>
             </Card>
         );
