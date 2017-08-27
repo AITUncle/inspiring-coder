@@ -14,7 +14,7 @@ export class LikedArrayMgr{
         this.array = getLocalJObject(this.keyLocal);
         //is not undefine and is not array
         if(!this.array || !Array.isArray(this.array)){
-            console.error("error:liked_array is not array");
+            console.warn("error:liked_array is not array", this.array);
             this.array = [];
         }
     }
