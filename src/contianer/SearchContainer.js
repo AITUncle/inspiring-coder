@@ -10,6 +10,7 @@ import {LOADING_SATE} from "../reducers/codersReducer";
 import CoderFetcher from "../fetcher/CoderFetcher";
 import Typography from "material-ui/Typography";
 import {URL_GIT_HUB} from "../util/GlobalEnv";
+import statistics from "../util/Statistics";
 
 class SearchContainer extends Component {
 
@@ -32,6 +33,11 @@ class SearchContainer extends Component {
             this.query.setLoadListener(this.props.loaded);
             this.query.setLoadMoreListener(this.props.loadedMore);
             this.query.loadCoders();
+            statistics.event({
+                category: 'coders',
+                action: 'search',
+                label:{nextValue},
+            })
         }
     };
 
