@@ -22,7 +22,7 @@ let styles = theme => {
                 transition: theme.transitions.create('width'),
                 width: 100,
                 '&:focus': {
-                    width: 450,
+                    width: 256,
                 },
             },
         },
