@@ -13,7 +13,7 @@ export class LikedArrayMgr{
         this.keyLocal = "liked_array";
         this.array = getLocalJObject(this.keyLocal);
         //is not undefine and is not array
-        if(this.array && !Array.isArray(this.array)){
+        if(!this.array || !Array.isArray(this.array)){
             console.error("error:liked_array is not array");
             this.array = [];
         }
@@ -29,7 +29,7 @@ export class LikedArrayMgr{
 
     isLiked = (objectId) => {
         if(objectId){
-            return this.array.includes(objectId);
+            return this.array.indexOf(objectId) > -1;
         }
     };
 
