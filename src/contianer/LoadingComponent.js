@@ -8,12 +8,27 @@ import CodersLoading from "../component/CodersLoading";
 
 
 function LoadingComponent(props) {
-    const {show} = props;
-    return show?<CodersLoading />: null;
+    const {loadingState, onReload} = props;
+    const showLoading = (loadingState === LOADING_SATE.LOADING);
+    const showReloading = (loadingState === LOADING_SATE.LOADING_FAILED);
+    let item = null;
+    if(showLoading || showReloading){
+        item = <CodersLoading
+            showReloaded={showReloading}
+            onClickReload={onReload}
+        />;
+    }
+    return item;
 }
 
 const mapStateToProps = (state) =>({
-    show:(state.loadingState === LOADING_SATE.LOADING),
+    loadingState:state.loadingState,
 });
 
-export default connect(mapStateToProps,null)(LoadingComponent);
+const mapDispatchToProps = (dispatch, ownProps) => ({
+    onReload(e){
+        e.preventDefault();
+        console.log("重新加载。。。");
+    },
+});
+export default connect(mapStateToProps, mapDispatchToProps)(LoadingComponent);
