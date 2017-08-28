@@ -30,6 +30,10 @@ class ThumbUpContainer extends Component {
             checked={checked}
             {...other}
             onChange={()=>{
+                if(!bean.objectId){
+                    showSnack("出现了bug：objectId为空，请联系vectorzeng火速修复,或者您亲自来GitHub亲自Debug");
+                    return;
+                }
                 if(this.isUploadding){
                     console.error("正在更新服务端数据，请您点击慢一点");
                     return;
