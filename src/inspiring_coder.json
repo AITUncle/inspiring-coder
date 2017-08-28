@@ -188,5 +188,44 @@
     "url": "https://baike.baidu.com/item/%E5%BC%A0%E5%B0%8F%E9%BE%99/24795",
     "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts",
     "numOfLike": 0
+  },
+  {
+    "id": 6,
+    "name": "比尔·盖茨",
+    "avatar": "img/6_billgates.jpg",
+    "birthday": "1955年10月28日",
+    "motto": "",
+    "infoArray": [
+      {
+        "key": "码过代表作:",
+        "values": [
+          "1971年一款课表安排软件",
+          "为第一台微型计算机MITS Altair开发了BASIC编程语言",
+          "windows操作系统"
+        ],
+        "separator": "、"
+      },
+      {
+        "key": "毕业院校:",
+        "values": [
+          "哈佛大学辍学"
+        ]
+      },
+      {
+        "key": "职业生涯:",
+        "values": [
+          "2008年6月27日，比尔·盖茨正式退休",
+          "1983年11月10日，Windows操作系统首次登台亮相",
+          "微软创始人",
+          "为第一台微型计算机 MITS Altair开发了BASIC编程语言的一个版本"
+        ],
+        "separator": " <--- "
+      }
+    ],
+    "end": "像bug一样存在的coder，无话可说，我等只能膜拜。",
+    "writer": "vectorzeng",
+    "url": "https://baike.baidu.com/item/%E5%BC%A0%E5%B0%8F%E9%BE%99/24795",
+    "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts",
+    "numOfLike": 0
   }
 ]
