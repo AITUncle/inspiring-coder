@@ -1,113 +1,156 @@
 [
-    {
-        "id":1,
-        "name": "李彦宏",
-        "avatar": "img/1_liyanhong.jpg",
-        "birthday": "1968年11月17日",
-        "motto": "做自己喜欢并且擅长的事情，不跟风，不动摇。",
-        "infoArray": [
-            {
-                "key": "码过代表作:",
-                "values": [
-                    "百度搜索","Infoseek"
-                ],
-                "separator": "、"
-            },
-            {
-                "key": "毕业院校:",
-                "values": [
-                    "北京大学",
-                    "布法罗纽约州立大学"
-                ],
-                "separator": "、"
-            },
-            {
-                "key": "职业生涯:",
-                "values": [
-                    "1991年，日本松下实习",
-                    "1994，道·琼斯子公司",
-                    "1997年,Infoseek(搜信)公司",
-                    "1999年创立百度公司"
-                ],
-                "separator": " --> "
-            }
+  {
+    "id": 1,
+    "name": "李彦宏",
+    "avatar": "img/1_liyanhong.jpg",
+    "birthday": "1968年11月17日",
+    "motto": "做自己喜欢并且擅长的事情，不跟风，不动摇。",
+    "infoArray": [
+      {
+        "key": "码过代表作:",
+        "values": [
+          "百度搜索",
+          "Infoseek"
         ],
-        "end": "Robin 是个令人又爱又恨的，创立了如今人人都离不开\"百度搜索\"；无疑百度是成功的，是伟大的；但是，大部分程序员都怀有对\"百度的无节操\"压抑着的恨，只能翻墙，默默的用着google。甚有激进者，以用google为荣。",
-        "numOfLike": 0,
-        "writer": "vectorzeng",
-        "url": "https://baike.baidu.com/item/%E6%9D%8E%E5%BD%A6%E5%AE%8F/125160",
-        "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts"
-    }, {
-        "id":2,
-        "name": "马化腾",
-        "avatar": "img/2_mahuateng.jpg",
-        "birthday": "1971年10月29日",
-        "motto": "复制+创新=成功",
-        "infoArray": [
-            {
-                "key": "码过代表作:",
-                "values": [
-                    "股霸卡","OICQ"
-                ],
-                "separator": "、"
-            },
-            {
-                "key": "毕业院校:",
-                "values": [
-                    "深圳大学计算机与软件学院"
-                ]
-            },
-            {
-                "key": "职业生涯:",
-                "values": [
-                    "1993年，深圳润迅通讯发展有限公司",
-                    "1998年，深圳腾讯计算机系统有限公司"
-                ],
-                "separator": " --> "
-            }
+        "separator": "、"
+      },
+      {
+        "key": "毕业院校:",
+        "values": [
+          "北京大学",
+          "布法罗纽约州立大学"
         ],
-        "end": "为了“养活”这只企鹅，大家想尽了办法。“那时我们几乎什么都做，例如帮人家做一些网站的小项目，包括深圳信息局的邮件系统也是我们做的。当时马化腾和张志东都自己亲手做网站，公司主页也是马化腾自己写的代码并亲手调试一些小细节。而我则开发做OICQ的服务器。有一次，我们去石家庄的一家寻呼台洽谈合作，马化腾在台上给对方讲产品和业务，我就在现场编程做系统，就这样把这单生意谈成了。”腾讯第一批开发工程师徐钢武回忆道。\n ------------------------- 摘自《腾讯十年：企鹅传奇》",
-        "numOfLike": 0,
-        "writer": "vectorzeng",
-        "url": "https://baike.baidu.com/item/%E9%A9%AC%E5%8C%96%E8%85%BE/124988",
-        "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts"
-    }, {
-    "id":3,
+        "separator": "、"
+      },
+      {
+        "key": "职业生涯:",
+        "values": [
+          "1999年创立百度公司",
+          "1997年,Infoseek(搜信)公司",
+          "1994，道·琼斯子公司",
+          "1991年，日本松下实习"
+        ],
+        "separator": " <--- "
+      }
+    ],
+    "end": "Robin 是个令人又爱又恨的，创立了如今人人都离不开\"百度搜索\"；无疑百度是成功的，是伟大的；但是，大部分程序员都怀有对\"百度的无节操\"压抑着的恨，只能翻墙，默默的用着google。甚有激进者，以用google为荣。",
+    "writer": "vectorzeng",
+    "url": "https://baike.baidu.com/item/%E6%9D%8E%E5%BD%A6%E5%AE%8F/125160",
+    "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts",
+    "numOfLike": 0
+  },
+  {
+    "id": 2,
+    "name": "马化腾",
+    "avatar": "img/2_mahuateng.jpg",
+    "birthday": "1971年10月29日",
+    "motto": "复制+创新=成功",
+    "infoArray": [
+      {
+        "key": "码过代表作:",
+        "values": [
+          "股霸卡",
+          "OICQ"
+        ],
+        "separator": "、"
+      },
+      {
+        "key": "毕业院校:",
+        "values": [
+          "深圳大学计算机与软件学院"
+        ]
+      },
+      {
+        "key": "职业生涯:",
+        "values": [
+          "1998年，深圳腾讯计算机系统有限公司",
+          "1993年，深圳润迅通讯发展有限公司"
+        ],
+        "separator": " <--- "
+      }
+    ],
+    "end": "为了“养活”这只企鹅，大家想尽了办法。“那时我们几乎什么都做，例如帮人家做一些网站的小项目，包括深圳信息局的邮件系统也是我们做的。当时马化腾和张志东都自己亲手做网站，公司主页也是马化腾自己写的代码并亲手调试一些小细节。而我则开发做OICQ的服务器。有一次，我们去石家庄的一家寻呼台洽谈合作，马化腾在台上给对方讲产品和业务，我就在现场编程做系统，就这样把这单生意谈成了。”腾讯第一批开发工程师徐钢武回忆道。\n ------------------------- 摘自《腾讯十年：企鹅传奇》",
+    "writer": "vectorzeng",
+    "url": "https://baike.baidu.com/item/%E9%A9%AC%E5%8C%96%E8%85%BE/124988",
+    "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts",
+    "numOfLike": 0
+  },
+  {
+    "id": 3,
     "name": "张小龙",
     "avatar": "img/3_zhangxiaolong.jpg",
     "birthday": "1969年12月3日",
     "motto": "做产品是克制还是自我压制？",
     "infoArray": [
-        {
-            "key": "码过代表作:",
-            "values": [
-                "Foxmail","QQ邮箱"
-            ],
-            "separator": "、"
-        },
-        {
-            "key": "毕业院校:",
-            "values": [
-                "华中科技大学"
-            ]
-        },
-        {
-            "key": "职业生涯:",
-            "values": [
-                "1997年，FoxMail创始人，FoxMail1.0beta（英文版）面世",
-                "2000年4月18日，以1200万元的价格把Foxmail卖给博大公司，并任公司副总裁",
-                "2005年3月16日，腾讯收购Foxmail软件，，担任腾讯公司广州研发部总经理，带领QQ邮箱团队",
-                "2010年11月20日，腾讯微信正式立项，由张小龙负责",
-                "2011年8月2日，张小龙任职为腾讯公司高级副总裁",
-                "2014年5月6日，张小龙担任微信事业群总裁"
-            ],
-            "separator": " --> "
-        }
+      {
+        "key": "码过代表作:",
+        "values": [
+          "Foxmail",
+          "QQ邮箱"
+        ],
+        "separator": "、"
+      },
+      {
+        "key": "毕业院校:",
+        "values": [
+          "华中科技大学"
+        ]
+      },
+      {
+        "key": "职业生涯:",
+        "values": [
+          "2014年5月6日，张小龙担任微信事业群总裁",
+          "2011年8月2日，张小龙任职为腾讯公司高级副总裁",
+          "2010年11月20日，腾讯微信正式立项，由张小龙负责",
+          "2005年3月16日，腾讯收购Foxmail软件，，担任腾讯公司广州研发部总经理，带领QQ邮箱团队",
+          "2000年4月18日，以1200万元的价格把Foxmail卖给博大公司，并任公司副总裁",
+          "1997年，FoxMail创始人，FoxMail1.0beta（英文版）面世"
+        ],
+        "separator": " <--- "
+      }
     ],
     "end": "张小龙应该是那种外表羞涩，内心躁动，在属于自己的某一个小领域自信心爆棚、却不轻易拿出来卖弄，期待影响很多人的人等等等等。应该就是那种传统意义上的工科闷骚男，或许，他应该还是具备另外一个品质，完美主义者。\n ------------------------- 摘自 \"知友:@盗盗\" ",
-    "numOfLike": 0,
     "writer": "vectorzeng",
     "url": "https://baike.baidu.com/item/%E5%BC%A0%E5%B0%8F%E9%BE%99/24795",
-    "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts"
-}
+    "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts",
+    "numOfLike": 0
+  },
+  {
+    "id": 4,
+    "name": "谢振宇",
+    "avatar": "img/4_xiezhengyu.jpg",
+    "birthday": "",
+    "motto": "和靠谱的人，做牛b的事...",
+    "infoArray": [
+      {
+        "key": "码过代表作:",
+        "values": [
+          "搜刮音乐网"
+        ],
+        "separator": "、"
+      },
+      {
+        "key": "毕业院校:",
+        "values": [
+          "中山大学"
+        ]
+      },
+      {
+        "key": "职业生涯:",
+        "values": [
+          "2016年7月中国音乐集团联席CEO；酷狗、酷我、qq音乐、海洋音乐，成立：中国音乐集团",
+          "2004年的时候推出第一版《酷狗音乐客户端》",
+          "2003开始开发《酷狗音乐客户端》",
+          "创立：搜刮音乐网",
+          "毕业后在招商银行做了几年技术开发"
+        ],
+        "separator": " <--- "
+      }
+    ],
+    "end": "谢总，是我毕业后的第二个boss。为人务实低调，典型的技术男性。某技术表彰大会时，谢总说起，酷狗的起源：“我很喜欢收藏碟（音乐的那种，不是你们想的那种岛国~）,私下同学之间会私下交换着听。后来有硬盘了，于是我们常常带着硬盘相互拷贝。后来在论坛上发帖，列出自己的《音乐清单》，有想要的网友就留言，歌曲名并留下邮箱，然后我就email给他们。这大概就是最早的p2p雏形吧……后来才有的“搜刮音乐”，“酷狗音乐”。”\n\n说到谢总，总能让人想起Linda【陈琳琳，谢总的妻子，酷狗COO】。她俩算是很典型夫妻档的老板和老板娘，老板负责，锐利、智慧、战略、激励员工，唱红脸；老板娘负责，雷厉风行，超强执行力，唱白脸。配合的很好的 partner。",
+    "writer": "vectorzeng",
+    "url": "https://baike.baidu.com/item/%E5%BC%A0%E5%B0%8F%E9%BE%99/24795",
+    "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts",
+    "numOfLike": 0
+  }
 ]
