@@ -9,7 +9,7 @@ import modelJson from "./model.json";
 export default class CheckList extends Component{
     constructor(props){
         super(props);
-        array.push(modelJson);
+        array.splice(0,0,modelJson);
         console.log(array);
     }
     render(){
