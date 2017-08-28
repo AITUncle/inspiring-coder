@@ -48,20 +48,21 @@ class LeanCloudUtil {
      *
      * @param cls               class name
      * @param callback:function callback(successed, result);
-     * @param ascending:string
+     * @param descending:string
      * @param limit:number      max count of result
      * @param skip:number       count of top item will been skip
      * @param containsKey
      * @param containsValue
      */
-    query(cls, callback, ascending, limit, skip, containsKey, containsValue) {
+    query(cls, callback, descending, limit, skip, containsKey, containsValue) {
         if (this.debug) {
             return;
         }
         let query = new AV.Query(cls);
-        if (ascending) {
-            query.ascending(ascending);
+        if (descending) {
+            query.addDescending(descending);
         }
+        query.addDescending("updatedAt");
         if (limit) {
             query.limit(limit);
         }

@@ -6,9 +6,9 @@ import {CoderBean} from "../bean/CoderBean";
 
 
 class CoderQuery {
-    constructor(asc, containsKey, containsValue) {
+    constructor(desc, containsKey, containsValue) {
         this.clsName = CoderFetcher.clsName;
-        this.asc = asc;
+        this.desc = desc;
         this.list = [];//CoderBean
         this.allCount = -1;
         this.containsKey = containsKey;
@@ -64,7 +64,7 @@ class CoderQuery {
                     if(listener){
                         listener(successed, this.list, this.allCount);
                     }
-                }, this.asc, 100, this.list.length,
+                }, this.desc, 100, this.list.length,
                 this.containsKey, this.containsValue);
         } else {
             console.error("CoderFetcher can not loadMore : allCount,this.list.length:",
@@ -105,17 +105,17 @@ class CoderQuery {
 
 export default class CoderFetcher {
     static keyLike = "numOfLike";
-    static ascByCreateAt = "createdAt";
+    static descByNumOfLike = "numOfLike";
     static searchKey = "name";
     static clsName = "inspiring_coder";// lean cloud dada class
 
     static createSearchQuery = (value) => {
-        return new CoderQuery(CoderFetcher.ascByCreateAt,
+        return new CoderQuery(CoderFetcher.descByNumOfLike,
             CoderFetcher.searchKey, value);
     };
 
     static createNormalQuery = () => {
-        return new CoderQuery(CoderFetcher.ascByCreateAt, null, null);
+        return new CoderQuery(CoderFetcher.descByNumOfLike, null, null);
     };
 
     /**
