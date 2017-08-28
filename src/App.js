@@ -9,7 +9,7 @@ import MainContainer from "./contianer/MainContainer";
 import SearchContainer from "./contianer/SearchContainer";
 import SnackContainer from "./contianer/SnackContainer"
 import FloatMenu from "./component/FloatMenu";
-// import CheckList from "./tmp/CheckList";
+import CheckList from "./tmp/CheckList";
 
 let MyAwesomeReactComponent = (props) => {
     const {searchValue} = props;
@@ -20,7 +20,7 @@ let MyAwesomeReactComponent = (props) => {
             {Boolean(searchValue)?
                 <SearchContainer searchValue={searchValue}/> :<MainContainer />}
             <LoadingComponent />
-            {/*<CheckList/>*/}
+            {false&&<CheckList/>}
         </div>
         <FloatMenu />
         <SnackContainer />
