@@ -13,14 +13,22 @@ import CheckList from "./tmp/CheckList";
 
 let MyAwesomeReactComponent = (props) => {
     const {searchValue} = props;
+    let debugChecker = false;
+    let content = [];
+    if(debugChecker){
+        content.push(<CheckList key="check_list"/>);
+    }else {
+        if (Boolean(searchValue)) {
+            content.push(<SearchContainer key="search_container" searchValue={searchValue}/>);
+        } else {
+            content.push(<MainContainer key="main_container" />);
+        }
+        content.push(<LoadingComponent key="loading"/>);
+    }
     return (<div>
         <TopBarContainer />
         <div className="App-content container">
-
-            {Boolean(searchValue)?
-                <SearchContainer searchValue={searchValue}/> :<MainContainer />}
-            <LoadingComponent />
-            {false&&<CheckList/>}
+            {content}
         </div>
         <FloatMenu />
         <SnackContainer />
