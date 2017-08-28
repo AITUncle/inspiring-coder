@@ -3,22 +3,24 @@ import 'typeface-roboto'
 import './App.css';
 import createStoreAndState from "./createStoreAndState";
 import {connect, Provider} from "react-redux";
-import LoadingComponent from "./contianer/LoadingComponent";
+// import LoadingComponent from "./contianer/LoadingComponent";
 import TopBarContainer from "./contianer/TopBarContainer";
-import MainContainer from "./contianer/MainContainer";
-import SearchContainer from "./contianer/SearchContainer";
+// import MainContainer from "./contianer/MainContainer";
+// import SearchContainer from "./contianer/SearchContainer";
 import SnackContainer from "./contianer/SnackContainer"
 import FloatMenu from "./component/FloatMenu";
+import CheckList from "./tmp/CheckList";
 
 let MyAwesomeReactComponent = (props) => {
-    const {searchValue} = props;
+    // const {searchValue} = props;
     return (<div>
         <TopBarContainer />
         <div className="App-content container">
 
-            {Boolean(searchValue)?
-                <SearchContainer searchValue={searchValue}/> :<MainContainer />}
-            <LoadingComponent />
+            {/*{Boolean(searchValue)?*/}
+                {/*<SearchContainer searchValue={searchValue}/> :<MainContainer />}*/}
+            {/*<LoadingComponent />*/}
+            <CheckList/>
         </div>
         <FloatMenu />
         <SnackContainer />

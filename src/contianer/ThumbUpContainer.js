@@ -31,7 +31,7 @@ class ThumbUpContainer extends Component {
             {...other}
             onChange={()=>{
                 if(!bean.objectId){
-                    showSnack("出现了bug：objectId为空，请联系vectorzeng火速修复,或者您亲自来GitHub亲自Debug");
+                    showSnack("出现了bug：objectId为空。请联系vectorzeng火速修复,或者您亲自来GitHub亲自Debug");
                     return;
                 }
                 if(this.isUploadding){
