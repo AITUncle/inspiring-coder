@@ -6,7 +6,11 @@ body {
 body {
   background-color: #E0E0E0;
 }
-ol, ul { list-style: none; }
+ol, ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
 
 pre{
   white-space:pre-wrap;
