@@ -13,7 +13,7 @@ import CheckList from "./tmp/CheckList";
 
 let MyAwesomeReactComponent = (props) => {
     const {searchValue} = props;
-    let debugChecker = false;
+    let debugChecker = true;
     let content = [];
     if(debugChecker){
         content.push(<CheckList key="check_list"/>);
