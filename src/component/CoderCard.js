@@ -103,7 +103,7 @@ class CoderCard extends Component {
                         />
 
                     <div className={classes.flexGrow} />
-                    <Link href={bean.writerUrl} className={classes.writer}>作者：vectorzeng</Link>
+                    <Link href={bean.writerUrl} className={classes.writer}>作者：{bean.writer}</Link>
                     <Button href={bean.url} dense color="primary">
                         更多
                     </Button>

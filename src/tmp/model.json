@@ -1,0 +1,30 @@
+{
+  "id": 0,
+  "name": "name",
+  "avatar": "img/6_billgates.jpg",
+  "birthday": "birthday",
+  "motto": "motto",
+  "infoArray": [
+    {
+      "key": "infoArray[0].key",
+      "values": [
+        "infoArray[0].value[0]",
+        "infoArray[0].value[1]"
+      ],
+      "separator": "、"
+    },
+    {
+      "key": "infoArray[1].key",
+      "values": [
+        "infoArray[1].value[0]",
+        "infoArray[1].value[1]",
+        "infoArray[1].value[2]"
+      ]
+    }
+  ],
+  "end": "end",
+  "writer": "writer",
+  "url": "https://baike.baidu.com/item/%E5%BC%A0%E5%B0%8F%E9%BE%99/24795",
+  "writerUrl": "https://www.zhihu.com/people/lost-zeng/posts",
+  "numOfLike": 0
+}
