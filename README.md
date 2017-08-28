@@ -1,7 +1,7 @@
 # 励志的程序员：
 产品网址：
-- http://inspiring.verygood123.com/inspiring-coder/
-- https://vectorzeng.github.io/inspiring-coder/
+- http://inspiring.verygood123.com/inspiring-coder
+- https://vectorzeng.github.io/inspiring-coder
 
 
 如果你懂json语法，或使用github，那么快加入成为作者吧。让更多的人知道你喜欢的程序员。
