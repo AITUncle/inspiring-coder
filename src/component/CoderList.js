@@ -11,7 +11,7 @@ function CoderList(props) {
     let items = null;
     if(list) {
         items = list.map((b) => {
-            return (<li key={b.objectId} style={{marginBottom: "2ex"}}><CoderCard bean={b}/></li>);
+            return (<li key={b.objectId+"_" + b.id} style={{marginBottom: "2ex"}}><CoderCard bean={b}/></li>);
         });
     }
     return(<ul>{items}</ul>);
