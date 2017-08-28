@@ -34,7 +34,10 @@ const styles = theme => {
         },writer:{
             ...theme.typography.subheading,
             marginRight:"4%",
-        },
+        },end:{
+            textIndent:"2em",
+            marginTop:"1em",
+        }
         ///////////
     }
 };
@@ -89,7 +92,7 @@ class CoderCard extends Component {
                             return this.createKeyValueLine(item.key, v);
                         })}
                     </ul>
-                    {bean.end?<Typography type="body1" component="pre">
+                    {bean.end?<Typography type="body1" component="pre" className={classes.end}>
                         {bean.end}
                     </Typography>:null}
                 </CardContent>
