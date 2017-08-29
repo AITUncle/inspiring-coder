@@ -2,6 +2,7 @@
 励志的程序员，一个收集那些有故事的程序员的网站：
 - http://inspiring.verygood123.com/inspiring-coder
 - https://vectorzeng.github.io/inspiring-coder
+
 如果你懂json语法，会使用github，那么快加入我们成为作者吧。让更多的人知道你喜欢的程序员。[【不会json和github也没关系，点我，进此贴留言】](https://github.com/vectorzeng/inspiring-coder/issues/1)
 
 
