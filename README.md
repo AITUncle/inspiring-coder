@@ -1,11 +1,11 @@
 # 励志的程序员：
-产品网址：
+励志的程序员，一个收集那些有故事的程序员的网站：
 - http://inspiring.verygood123.com/inspiring-coder
 - https://vectorzeng.github.io/inspiring-coder
+如果你懂json语法，会使用github，那么快加入我们成为作者吧。让更多的人知道你喜欢的程序员。[【不会json和github也没关系，点我，进此贴留言】](https://github.com/vectorzeng/inspiring-coder/issues/1)
 
 
-如果你懂json语法，会使用github，那么快加入成为作者吧。让更多的人知道你喜欢的程序员。
-只要把你希望系统录入的"程序员"的信息以json格式添加到文件[src/inspiring_coder.json](./src/inspiring_coder.json)。
+把你要上传的"程序员"的信息以json格式添加到文件[src/inspiring_coder.json](./src/inspiring_coder.json)。
 他的头像统一放到[public/img](./public/img)。
 
 修改好后给我[pull request](https://github.com/vectorzeng/inspiring-coder/pulls)吧，我会很开心很乐意的。
